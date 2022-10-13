@@ -3,6 +3,7 @@
   padding: 0;
   font-family: "Roboto Slab", serif;
 }
+
 body {
   overflow-x: hidden;
 }
@@ -97,6 +98,7 @@ nav img {
   cursor: pointer;
   z-index: 2;
 }
+
 .menu-toggle span {
   display: block;
   height: 3px;
@@ -110,20 +112,24 @@ nav img {
 .menu-toggle span:nth-child(2) {
   transform-origin: 0 0;
 }
+
 .menu-toggle span:nth-child(4) {
   transform-origin: 0 100%;
 }
 
-.menu-toggle input:checked ~ span:nth-child(2) {
+.menu-toggle input:checked~span:nth-child(2) {
   transform: rotate(45deg) translate(-1px, -1px);
 }
-.menu-toggle input:checked ~ span:nth-child(4) {
+
+.menu-toggle input:checked~span:nth-child(4) {
   transform: rotate(-45deg) translate(-1px, 0);
 }
-.menu-toggle input:checked ~ span:nth-child(3) {
+
+.menu-toggle input:checked~span:nth-child(3) {
   opacity: 0;
   transform: scale(0);
 }
+
 /* ------ PENGENALAN GEMBALA ------ */
 .gembala {
   margin: 0;
@@ -133,59 +139,157 @@ nav img {
   background-color: black;
   position: relative;
 }
+
 .flexing {
   display: flex;
   padding-top: 50px;
   align-items: center;
   justify-content: center;
 }
+
 h1 {
   font-size: 25px;
   font-weight: 600;
   color: aliceblue;
 }
+
 #kalimatGembala {
   color: aliceblue;
   text-align: left;
   padding-left: 30px;
   margin-left: 40px;
 }
+
 .pdt {
   width: 300px;
   padding-left: 60px;
 }
 
-.komunitas, .renungan, .video-section, .alamat {
+.komunitas,
+.renungan,
+.video-section,
+.alamat {
   background-color: black;
   padding: 80px;
 }
 
-.komunitas > h1,
-.renungan > h1,
-.alamat > h1 {
+.komunitas>h1,
+.renungan>h1,
+.alamat>h1 {
   width: fit-content;
   margin: auto;
   margin-bottom: 35px;
 }
 
-.komunitas > div {
+.kom-card {
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.kom-frame {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-  border-radius: 5px;
+.card-kgc {
+  position: relative;
+  text-align: center;
 }
 
-.renungan > div {
+.card-front-kgc,
+.card-front-rocket,
+.card-front-rocky,
+.card-front-royal,
+.card-front-rockman,
+.card-back {
+  margin: 10px;
+  background-color: black;
+  display: block;
+  height: 250px;
+  width: 175px;
+  max-width: 175px;
+  border-radius: 10px;
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-front-kgc{
+  background-image: url(/images/LOGO\ KGC-01.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.548);
+  transform: rotateY(0);
+}
+.card-front-royal{
+  background-image: url(/images/LOGO\ ROYAL-01.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.548);
+  transform: rotateY(0);
+}
+.card-front-rocket{
+  background-image: url(/images/LOGO\ ROCKET-01.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.548);
+  transform: rotateY(0);
+}
+.card-front-rocky{
+  background-image: url(/images/LOGO\ ROCKY-01.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.548);
+  transform: rotateY(0);
+}
+.card-front-rockman{
+  background-image: url(/images/rockman2.png);
+  background-position: center;
+  background-size: 200px;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.548);
+  transform: rotateY(0);
+}
+.card-back {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* padding: 10px; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  transform: rotateY(-180deg);
+}
+
+.card-kgc:hover .card-front-rocket
+{
+  transform: rotateY(180deg);
+}
+.card-kgc:hover .card-front-kgc
+{
+  transform: rotateY(180deg);
+}.card-kgc:hover .card-front-royal
+{
+  transform: rotateY(180deg);
+}.card-kgc:hover .card-front-rocky
+{
+  transform: rotateY(180deg);
+}
+.card-kgc:hover .card-front-rockman
+{
+  transform: rotateY(180deg);
+}
+.card-kgc:hover .card-back {
+  opacity: 1;
+  transform: rotateY(0)
+}
+
+
+.renungan>div {
   display: flex;
 }
 
-.renungan > div h1 {
+.renungan>div h1 {
   margin-bottom: 15px;
 }
 
@@ -209,7 +313,7 @@ h1 {
   height: 45vh;
 }
 
-.alamat > div {
+.alamat>div {
   display: flex;
 }
 
@@ -258,9 +362,11 @@ h1 {
     transform: translateX(100%);
     transition: all 1s;
   }
+
   .nav-links ul.slide {
     transform: translateX(0);
   }
+
   /* ------perkenalan gembala sidang mobile---- */
 
   .pdt {
